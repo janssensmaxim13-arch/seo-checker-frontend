@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-jj-dark: #0a0f1c;
+  --color-jj-navy: #111827;
+  --color-jj-card: #1a2236;
+  --color-jj-border: #2a3450;
+  --color-jj-blue: #3b82f6;
+  --color-jj-blue-light: #60a5fa;
+  --color-jj-accent: #f59e0b;
+  --color-jj-green: #10b981;
+  --color-jj-red: #ef4444;
+  --color-jj-orange: #f97316;
+  --color-jj-text: #e2e8f0;
+  --color-jj-muted: #94a3b8;
+}
+
+body {
+  background-color: var(--color-jj-dark);
+  color: var(--color-jj-text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes score-fill {
+  from { stroke-dashoffset: 283; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.4); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out forwards;
+}
+
+.animate-score-fill {
+  animation: score-fill 1.5s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.scan-loading {
+  overflow: hidden;
+  position: relative;
+}
+
+.scan-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.15), transparent);
+  animation: scan-line 1.5s ease-in-out infinite;
+}
