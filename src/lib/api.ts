@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://web-production-5e7b4.up.railway.app";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://seo-checker-api-production-7d23.up.railway.app";
 
 export interface PageResult {
   url: string;
